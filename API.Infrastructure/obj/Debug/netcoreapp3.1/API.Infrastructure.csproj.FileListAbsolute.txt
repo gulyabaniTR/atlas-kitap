@@ -7,3 +7,6 @@ D:\COMU2020\4. DÖNEM\PROJELER\Kamil Hoca - İçerik Dağıtım\AAA_Kodlar\Backe
 D:\COMU2020\4. DÖNEM\PROJELER\Kamil Hoca - İçerik Dağıtım\AAA_Kodlar\Backend\src\API.Infrastructure\bin\Debug\netcoreapp3.1\API.Core.dll
 D:\COMU2020\4. DÖNEM\PROJELER\Kamil Hoca - İçerik Dağıtım\AAA_Kodlar\Backend\src\API.Infrastructure\bin\Debug\netcoreapp3.1\API.Core.pdb
 D:\COMU2020\4. DÖNEM\PROJELER\Kamil Hoca - İçerik Dağıtım\AAA_Kodlar\Backend\src\API.Infrastructure\obj\Debug\netcoreapp3.1\API.Infrastructure.csproj.CopyComplete
+D:\COMU2020\4. DÖNEM\PROJELER\Kamil Hoca - İçerik Dağıtım\AAA_Kodlar\Backend\src\API.Infrastructure\bin\Debug\netcoreapp3.1\API.Infrastructure.pdb
+D:\COMU2020\4. DÖNEM\PROJELER\Kamil Hoca - İçerik Dağıtım\AAA_Kodlar\Backend\src\API.Infrastructure\obj\Debug\netcoreapp3.1\API.Infrastructure.dll
+D:\COMU2020\4. DÖNEM\PROJELER\Kamil Hoca - İçerik Dağıtım\AAA_Kodlar\Backend\src\API.Infrastructure\obj\Debug\netcoreapp3.1\API.Infrastructure.pdb

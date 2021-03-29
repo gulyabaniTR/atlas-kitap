@@ -12,7 +12,7 @@ namespace API.Data.Migrations
     [Migration("20210329043421_AddFirstMigration")]
     partial class AddFirstMigration
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
