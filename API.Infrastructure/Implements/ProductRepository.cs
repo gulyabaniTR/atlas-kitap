@@ -14,6 +14,7 @@ namespace API.Infrastructure.Implements
         {
             _context = context;
         }
+
         public async Task<Product> GetProductByIdAsync(int id)
         {
             return await _context.Products.FindAsync(id);
@@ -22,6 +23,16 @@ namespace API.Infrastructure.Implements
         public async Task<IReadOnlyList<Product>> GetProductsAsync()
         {
             return await _context.Products.ToListAsync();
+        }
+
+
+        public async Task<IReadOnlyList<ProductBrand>> GetProductBrandsAsync()
+        {
+            return await _context.ProductBrand.ToListAsync();
+        }
+        public async Task<IReadOnlyList<ProductType>> GetProductTypesAsync()
+        {
+            return await _context.ProductType.ToListAsync();
         }
     }
 }

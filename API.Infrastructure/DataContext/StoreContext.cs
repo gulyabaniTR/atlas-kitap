@@ -16,5 +16,7 @@ namespace API.Infrastructure.DataContext
 
         //contextin databasede eşleşmesi için DbSet olarak belirtilmelidir
         public DbSet<Product> Products { get; set; }
+        public DbSet<ProductBrand> ProductBrand { get; set; }
+        public DbSet<ProductType> ProductType { get; set; }
     }
 }
