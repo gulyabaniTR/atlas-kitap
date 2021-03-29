@@ -1,0 +1,9 @@
+D:\COMU2020\4. DÖNEM\PROJELER\Kamil Hoca - İçerik Dağıtım\AAA_Kodlar\Backend\src\API.Core\bin\Debug\netcoreapp3.1\API.Core.deps.json
+D:\COMU2020\4. DÖNEM\PROJELER\Kamil Hoca - İçerik Dağıtım\AAA_Kodlar\Backend\src\API.Core\bin\Debug\netcoreapp3.1\API.Core.dll
+D:\COMU2020\4. DÖNEM\PROJELER\Kamil Hoca - İçerik Dağıtım\AAA_Kodlar\Backend\src\API.Core\bin\Debug\netcoreapp3.1\API.Core.pdb
+D:\COMU2020\4. DÖNEM\PROJELER\Kamil Hoca - İçerik Dağıtım\AAA_Kodlar\Backend\src\API.Core\obj\Debug\netcoreapp3.1\API.Core.csprojAssemblyReference.cache
+D:\COMU2020\4. DÖNEM\PROJELER\Kamil Hoca - İçerik Dağıtım\AAA_Kodlar\Backend\src\API.Core\obj\Debug\netcoreapp3.1\API.Core.AssemblyInfoInputs.cache
+D:\COMU2020\4. DÖNEM\PROJELER\Kamil Hoca - İçerik Dağıtım\AAA_Kodlar\Backend\src\API.Core\obj\Debug\netcoreapp3.1\API.Core.AssemblyInfo.cs
+D:\COMU2020\4. DÖNEM\PROJELER\Kamil Hoca - İçerik Dağıtım\AAA_Kodlar\Backend\src\API.Core\obj\Debug\netcoreapp3.1\API.Core.csproj.CoreCompileInputs.cache
+D:\COMU2020\4. DÖNEM\PROJELER\Kamil Hoca - İçerik Dağıtım\AAA_Kodlar\Backend\src\API.Core\obj\Debug\netcoreapp3.1\API.Core.dll
+D:\COMU2020\4. DÖNEM\PROJELER\Kamil Hoca - İçerik Dağıtım\AAA_Kodlar\Backend\src\API.Core\obj\Debug\netcoreapp3.1\API.Core.pdb

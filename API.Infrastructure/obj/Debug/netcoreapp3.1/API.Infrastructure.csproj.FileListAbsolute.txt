@@ -1,0 +1,6 @@
+D:\COMU2020\4. DÖNEM\PROJELER\Kamil Hoca - İçerik Dağıtım\AAA_Kodlar\Backend\src\API.Infrastructure\bin\Debug\netcoreapp3.1\API.Infrastructure.deps.json
+D:\COMU2020\4. DÖNEM\PROJELER\Kamil Hoca - İçerik Dağıtım\AAA_Kodlar\Backend\src\API.Infrastructure\bin\Debug\netcoreapp3.1\API.Infrastructure.dll
+D:\COMU2020\4. DÖNEM\PROJELER\Kamil Hoca - İçerik Dağıtım\AAA_Kodlar\Backend\src\API.Infrastructure\obj\Debug\netcoreapp3.1\API.Infrastructure.csprojAssemblyReference.cache
+D:\COMU2020\4. DÖNEM\PROJELER\Kamil Hoca - İçerik Dağıtım\AAA_Kodlar\Backend\src\API.Infrastructure\obj\Debug\netcoreapp3.1\API.Infrastructure.AssemblyInfoInputs.cache
+D:\COMU2020\4. DÖNEM\PROJELER\Kamil Hoca - İçerik Dağıtım\AAA_Kodlar\Backend\src\API.Infrastructure\obj\Debug\netcoreapp3.1\API.Infrastructure.AssemblyInfo.cs
+D:\COMU2020\4. DÖNEM\PROJELER\Kamil Hoca - İçerik Dağıtım\AAA_Kodlar\Backend\src\API.Infrastructure\obj\Debug\netcoreapp3.1\API.Infrastructure.csproj.CoreCompileInputs.cache

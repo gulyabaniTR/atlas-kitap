@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\COMU2020\\4. DÖNEM\\PROJELER\\Kamil Hoca - İçerik Dağıtım\\AAA_Kodlar\\Backend\\src\\API\\API.csproj": {}
+    "D:\\COMU2020\\4. DÖNEM\\PROJELER\\Kamil Hoca - İçerik Dağıtım\\AAA_Kodlar\\Backend\\src\\API.Core\\API.Core.csproj": {}
   },
   "projects": {
-    "D:\\COMU2020\\4. DÖNEM\\PROJELER\\Kamil Hoca - İçerik Dağıtım\\AAA_Kodlar\\Backend\\src\\API\\API.csproj": {
+    "D:\\COMU2020\\4. DÖNEM\\PROJELER\\Kamil Hoca - İçerik Dağıtım\\AAA_Kodlar\\Backend\\src\\API.Core\\API.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\COMU2020\\4. DÖNEM\\PROJELER\\Kamil Hoca - İçerik Dağıtım\\AAA_Kodlar\\Backend\\src\\API\\API.csproj",
-        "projectName": "API",
-        "projectPath": "D:\\COMU2020\\4. DÖNEM\\PROJELER\\Kamil Hoca - İçerik Dağıtım\\AAA_Kodlar\\Backend\\src\\API\\API.csproj",
+        "projectUniqueName": "D:\\COMU2020\\4. DÖNEM\\PROJELER\\Kamil Hoca - İçerik Dağıtım\\AAA_Kodlar\\Backend\\src\\API.Core\\API.Core.csproj",
+        "projectName": "API.Core",
+        "projectPath": "D:\\COMU2020\\4. DÖNEM\\PROJELER\\Kamil Hoca - İçerik Dağıtım\\AAA_Kodlar\\Backend\\src\\API.Core\\API.Core.csproj",
         "packagesPath": "C:\\Users\\Gulyabani\\.nuget\\packages\\",
-        "outputPath": "D:\\COMU2020\\4. DÖNEM\\PROJELER\\Kamil Hoca - İçerik Dağıtım\\AAA_Kodlar\\Backend\\src\\API\\obj\\",
+        "outputPath": "D:\\COMU2020\\4. DÖNEM\\PROJELER\\Kamil Hoca - İçerik Dağıtım\\AAA_Kodlar\\Backend\\src\\API.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -44,18 +44,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[3.1.2, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[3.1.2, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -67,9 +55,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

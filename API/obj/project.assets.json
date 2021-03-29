@@ -1280,21 +1280,6 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "API.Data/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore": "3.1.2",
-          "Microsoft.EntityFrameworkCore.Relational": "3.1.2",
-          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.2"
-        },
-        "compile": {
-          "bin/placeholder/API.Data.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/API.Data.dll": {}
-        }
       }
     }
   },
@@ -4952,16 +4937,10 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
-    },
-    "API.Data/1.0.0": {
-      "type": "project",
-      "path": "../API.Data/API.Data.csproj",
-      "msbuildProject": "../API.Data/API.Data.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "API.Data >= 1.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.2",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.2"
     ]
@@ -5000,11 +4979,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {
-            "D:\\COMU2020\\4. DÖNEM\\PROJELER\\Kamil Hoca - İçerik Dağıtım\\AAA_Kodlar\\Backend\\src\\API.Data\\API.Data.csproj": {
-              "projectPath": "D:\\COMU2020\\4. DÖNEM\\PROJELER\\Kamil Hoca - İçerik Dağıtım\\AAA_Kodlar\\Backend\\src\\API.Data\\API.Data.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
