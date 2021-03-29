@@ -1280,6 +1280,32 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "API.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/API.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/API.Core.dll": {}
+        }
+      },
+      "API.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "API.Core": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "3.1.2",
+          "Microsoft.EntityFrameworkCore.Relational": "3.1.2",
+          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.2"
+        },
+        "compile": {
+          "bin/placeholder/API.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/API.Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -4937,10 +4963,21 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "API.Core/1.0.0": {
+      "type": "project",
+      "path": "../API.Core/API.Core.csproj",
+      "msbuildProject": "../API.Core/API.Core.csproj"
+    },
+    "API.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../API.Infrastructure/API.Infrastructure.csproj",
+      "msbuildProject": "../API.Infrastructure/API.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "API.Infrastructure >= 1.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.2",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.2"
     ]
@@ -4979,7 +5016,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\COMU2020\\4. DÖNEM\\PROJELER\\Kamil Hoca - İçerik Dağıtım\\AAA_Kodlar\\Backend\\src\\API.Infrastructure\\API.Infrastructure.csproj": {
+              "projectPath": "D:\\COMU2020\\4. DÖNEM\\PROJELER\\Kamil Hoca - İçerik Dağıtım\\AAA_Kodlar\\Backend\\src\\API.Infrastructure\\API.Infrastructure.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

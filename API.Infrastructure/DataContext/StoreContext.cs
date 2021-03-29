@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace API.Data.DataContext
+namespace API.Infrastructure.DataContext
 {
     public class StoreContext : DbContext
     {

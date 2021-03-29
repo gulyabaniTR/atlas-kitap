@@ -12,5 +12,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\API.Infrastructure\API.Infrastructure.csproj" />
+  </ItemGroup>
+
 
 </Project>
