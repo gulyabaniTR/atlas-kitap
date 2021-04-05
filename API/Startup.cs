@@ -33,6 +33,11 @@ namespace API
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddControllers();
             services.AddDbContext<StoreContext>(options=>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddCors(x => {
+                x.AddPolicy("CorsPolicy", x => {
+                    x.AllowAnyHeader().AllowAnyOrigin().WithOrigins("http://localhost:4200");
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +53,8 @@ namespace API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("CorsPolicy");
 
             app.UseAuthorization();
 
