@@ -1,4 +1,5 @@
 ﻿using API.Core.DbModels;
+using API.Core.Specification;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,5 +15,9 @@ namespace API.Core.Interfaces
 
         //IReadOnlyList sadece okuma işlemi yapılması için kullanılacak
         Task<IReadOnlyList<T>> ListAllAsync();
+
+        Task<T> GetEntityWithSpec(ISpecification<T> spec);
+
+        Task<IReadOnlyList<T>> ListAsync(ISpecification<T> spec);
     }
 }

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using API.Core.DbModels;
 using API.Core.Interfaces;
+using API.Core.Specification;
+using API.Dtos;
 using API.Infrastructure.DataContext;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +14,7 @@ using Microsoft.EntityFrameworkCore;
 namespace API.Controllers
 {
     //xxx/api/products/GetProduct
-    [Route("api/[controller]")] 
+    [Route("api/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
@@ -66,16 +68,41 @@ namespace API.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult<List<Product>>> GetProducts()
-        {   
-            var data = await _productRepository.ListAllAsync();
-            return Ok(data);
+        public async Task<ActionResult<List<ProductToReturnDto>>> GetProducts()
+        {
+            var spec = new ProductsWithProductTypeAndBrandsSpecification();
+            var data = await _productRepository.ListAsync(spec);
+            //return Ok(data);
+
+            return data.Select(product => new ProductToReturnDto
+            {
+                Id = product.Id,
+                Name = product.Name,
+                Description = product.Description,
+                PictureUrl = product.PictureUrl,
+                Price = product.Price,
+                ProductBrand = product.ProductBrand != null ? product.ProductBrand : null,
+                ProductType = product.ProductType != null ? product.ProductType : null
+
+            }).ToList();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProduct(int id)
+        public async Task<ActionResult<ProductToReturnDto>> GetProduct(int id)
         {
-            return await _productRepository.GetByIdAsync(id);
+            var spec = new ProductsWithProductTypeAndBrandsSpecification(id);
+            //return await _productRepository.GetEntityWithSpec(spec);
+            var product = await _productRepository.GetEntityWithSpec(spec);
+            return new ProductToReturnDto
+            {
+                Id = product.Id,
+                Name = product.Name,
+                Description = product.Description,
+                PictureUrl = product.PictureUrl,
+                Price = product.Price,
+                ProductBrand = product.ProductBrand != null ? product.ProductBrand : null,
+                ProductType = product.ProductType != null ? product.ProductType : null
+            };
         }
 
         [HttpGet("brands")]
