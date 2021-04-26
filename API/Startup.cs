@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using API.Core.Interfaces;
+using API.Extensions;
 using API.Helpers;
 using API.Infrastructure.DataContext;
 using API.Infrastructure.Implements;
+using API.Middleware;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -16,6 +18,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 
 namespace API
 {
@@ -32,16 +35,20 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
             //IProductRepository gördüðü zaman Product Repository e gidicek
-            services.AddScoped<IProductRepository, ProductRepository>();
-            services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
             services.AddControllers();
             services.AddAutoMapper(typeof(MappingProfiles));
             services.AddDbContext<StoreContext>(options=>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddApplicationServices();
+
             services.AddCors(x => {
                 x.AddPolicy("CorsPolicy", x => {
                     x.AllowAnyHeader().AllowAnyOrigin().WithOrigins("http://localhost:4200");
                 });
             });
+
+            services.AddSwaggerDocumentation();
+
+            
 
         }
 
@@ -50,10 +57,13 @@ namespace API
         {
 
             //(AppSettingJson) Env Setting
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            //if (env.IsDevelopment())
+            //{
+            //    app.UseDeveloperExceptionPage();
+            //}
+
+            app.UseMiddleware<ExceptionMiddleware>();
+            app.UseStatusCodePagesWithReExecute("/error/{0}");
 
             app.UseHttpsRedirection();
 
@@ -62,6 +72,8 @@ namespace API
             app.UseCors("CorsPolicy");
 
             app.UseAuthorization();
+
+            app.UseSwaggerDocumentation()
 
             app.UseEndpoints(endpoints =>
             {
