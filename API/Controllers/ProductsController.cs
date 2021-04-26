@@ -7,6 +7,7 @@ using API.Core.Interfaces;
 using API.Core.Specification;
 using API.Dtos;
 using API.Infrastructure.DataContext;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,9 +15,8 @@ using Microsoft.EntityFrameworkCore;
 namespace API.Controllers
 {
     //xxx/api/products/GetProduct
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ProductsController : ControllerBase
+   
+    public class ProductsController : BaseApiController
     {
         // ESKİ
 
@@ -58,33 +58,40 @@ namespace API.Controllers
         private readonly IGenericRepository<ProductBrand> _productBrandRepository;
         private readonly IGenericRepository<ProductType> _productTypeRepository;
 
+        private readonly IMapper _mapper;
         //Inject İşlemi Gerçekleştirildi
-        public ProductsController(IGenericRepository<Product> productRepository, IGenericRepository<ProductBrand> productBrandRepository, IGenericRepository<ProductType> productTypeRepository)
+        public ProductsController(IGenericRepository<Product> productRepository, IGenericRepository<ProductBrand> productBrandRepository, IGenericRepository<ProductType> productTypeRepository,IMapper mapper)
         {
             _productRepository = productRepository;
             _productBrandRepository = productBrandRepository;
             _productTypeRepository = productTypeRepository;
+            _mapper = mapper;
         }
 
 
         [HttpGet]
-        public async Task<ActionResult<List<ProductToReturnDto>>> GetProducts()
+        public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProducts()
         {
             var spec = new ProductsWithProductTypeAndBrandsSpecification();
             var data = await _productRepository.ListAsync(spec);
             //return Ok(data);
 
-            return data.Select(product => new ProductToReturnDto
-            {
-                Id = product.Id,
-                Name = product.Name,
-                Description = product.Description,
-                PictureUrl = product.PictureUrl,
-                Price = product.Price,
-                ProductBrand = product.ProductBrand != null ? product.ProductBrand : null,
-                ProductType = product.ProductType != null ? product.ProductType : null
+            //return data.Select(product => new ProductToReturnDto
+            //{
+            //    Id = product.Id,
+            //    Name = product.Name,
+            //    Description = product.Description,
+            //    PictureUrl = product.PictureUrl,
+            //    Price = product.Price,
+            //    ProductBrandName = product.ProductBrand != null ? product.ProductBrand.Name : string.Empty,
+            //    ProductBrandId = product.ProductBrand != null ? product.ProductBrand.Id : -1,
+            //    ProductTypeName = product.ProductType != null ? product.ProductType.Name : string.Empty,
+            //    ProductTypeId = product.ProductType != null ? product.ProductType.Id : -1
 
-            }).ToList();
+            //}).ToList();
+
+            return Ok(_mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(data));
+
         }
 
         [HttpGet("{id}")]
@@ -93,16 +100,20 @@ namespace API.Controllers
             var spec = new ProductsWithProductTypeAndBrandsSpecification(id);
             //return await _productRepository.GetEntityWithSpec(spec);
             var product = await _productRepository.GetEntityWithSpec(spec);
-            return new ProductToReturnDto
-            {
-                Id = product.Id,
-                Name = product.Name,
-                Description = product.Description,
-                PictureUrl = product.PictureUrl,
-                Price = product.Price,
-                ProductBrand = product.ProductBrand != null ? product.ProductBrand : null,
-                ProductType = product.ProductType != null ? product.ProductType : null
-            };
+            //return new ProductToReturnDto
+            //{
+            //    Id = product.Id,
+            //    Name = product.Name,
+            //    Description = product.Description,
+            //    PictureUrl = product.PictureUrl,
+            //    Price = product.Price,
+            //    ProductBrandName = product.ProductBrand != null ? product.ProductBrand.Name : string.Empty,
+            //    ProductBrandId = product.ProductBrand != null ? product.ProductBrand.Id : -1,
+            //    ProductTypeName = product.ProductType != null ? product.ProductType.Name : string.Empty,
+            //    ProductTypeId = product.ProductType != null ? product.ProductType.Id : -1
+            //};
+
+            return _mapper.Map<Product, ProductToReturnDto>(product);
         }
 
         [HttpGet("brands")]
