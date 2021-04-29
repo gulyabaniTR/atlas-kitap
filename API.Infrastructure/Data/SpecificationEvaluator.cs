@@ -27,6 +27,21 @@ namespace API.Infrastructure.Data
                 query = query.Where(spec.Criteria);
             }
 
+            if (spec.OrderBy != null)
+            {
+                query = query.OrderBy(spec.OrderBy);
+            }
+
+            if (spec.OrderByDescending != null)
+            {
+                query = query.OrderByDescending(spec.OrderByDescending);
+            }
+
+            if (spec.IsPagingEnable)
+            {
+                query = query.Skip(spec.Skip).Take(spec.Take);
+            }
+
             //eğer where yok ise current -> TEntitiy e eşittir ve içindeki includeları dönen Queryable'ı aggragater ile gezerek işliyorum
             //aggreate sadece dizilerde geri gitmek için değil de tüm includeları yakalamak için kullandım
             query = spec.Includes.Aggregate(query, (current, include) => current.Include(include));

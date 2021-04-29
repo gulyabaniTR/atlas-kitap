@@ -70,9 +70,9 @@ namespace API.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProducts()
+        public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProducts([FromQuery]ProductSpecParams productSpecParams)
         {
-            var spec = new ProductsWithProductTypeAndBrandsSpecification();
+            var spec = new ProductsWithProductTypeAndBrandsSpecification(productSpecParams);
             var data = await _productRepository.ListAsync(spec);
             //return Ok(data);
 
