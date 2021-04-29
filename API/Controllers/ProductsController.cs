@@ -6,6 +6,7 @@ using API.Core.DbModels;
 using API.Core.Interfaces;
 using API.Core.Specification;
 using API.Dtos;
+using API.Helpers;
 using API.Infrastructure.DataContext;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
@@ -70,10 +71,15 @@ namespace API.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProducts([FromQuery]ProductSpecParams productSpecParams)
+        public async Task<ActionResult<Pagination<ProductToReturnDto>>> GetProducts([FromQuery]ProductSpecParams productSpecParams)
         {
             var spec = new ProductsWithProductTypeAndBrandsSpecification(productSpecParams);
-            var data = await _productRepository.ListAsync(spec);
+            var countSpec = new ProductWithFiltersForCountSpecification(productSpecParams);
+            var totalItems = await _productRepository.CountAsync(spec);
+            var products = await _productRepository.ListAsync(spec);
+
+            var data = _mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(products);
+
             //return Ok(data);
 
             //return data.Select(product => new ProductToReturnDto
@@ -90,7 +96,7 @@ namespace API.Controllers
 
             //}).ToList();
 
-            return Ok(_mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(data));
+            return Ok(new Pagination<ProductToReturnDto>(productSpecParams.PageIndex,productSpecParams.PageSize,totalItems,data));
 
         }
 

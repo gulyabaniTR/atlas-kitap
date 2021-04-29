@@ -19,5 +19,16 @@ namespace API.Core.Specification
         public int? TypeId { get; set; }
         public string Sort { get; set; }
 
+
+        //search encapsulation
+        private string _search;
+
+        public string Search {
+            get { return _search; }
+            set
+            {
+                _search = value.ToLower();
+            } 
+        }
     }
 }
