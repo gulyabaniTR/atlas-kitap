@@ -9,14 +9,17 @@ namespace API.Core.Specification
     {
         public ProductWithFiltersForCountSpecification(ProductSpecParams productSpecParams)
             : base(x =>
-            (string.IsNullOrWhiteSpace(productSpecParams.Search) || x.Name.ToLower().Contains(productSpecParams.Search))
+            (string.IsNullOrWhiteSpace(productSpecParams.Search) || x.Name.ToLower().Contains(productSpecParams.Search) || x.Author.Name.ToLower().Contains(productSpecParams.Search))
             &&
              (!productSpecParams.BrandId.HasValue || x.ProductBrandId == productSpecParams.BrandId)
              &&
              (!productSpecParams.TypeId.HasValue || x.ProductTypeId == productSpecParams.TypeId)
+             &&
+            (!productSpecParams.AuthorId.HasValue || x.AuthorId == productSpecParams.AuthorId)
             )
+            
         {
-
+           
         }
     }
 }

@@ -9,16 +9,19 @@ namespace API.Core.Specification
     {
         public ProductsWithProductTypeAndBrandsSpecification(ProductSpecParams productSpecParams)
             :base(x=>
-            (string.IsNullOrWhiteSpace(productSpecParams.Search)|| x.Name.ToLower().Contains(productSpecParams.Search))
+            (string.IsNullOrWhiteSpace(productSpecParams.Search)|| x.Name.ToLower().Contains(productSpecParams.Search) || x.Author.Name.ToLower().Contains(productSpecParams.Search))
             &&
             (!productSpecParams.BrandId.HasValue || x.ProductBrandId == productSpecParams.BrandId)
             &&
             (!productSpecParams.TypeId.HasValue || x.ProductTypeId == productSpecParams.TypeId)
+            &&
+            (!productSpecParams.AuthorId.HasValue || x.AuthorId == productSpecParams.AuthorId)
             )
         {
             //lazy loadin
             base.AddInclude(x => x.ProductBrand);
             base.AddInclude(x => x.ProductType);
+            base.AddInclude(x=>x.Author);
             //base.AddOrderBy(x => x.Name);
 
             ApplyPaging(productSpecParams.PageSize * (productSpecParams.PageIndex - 1),productSpecParams.PageSize);
@@ -44,6 +47,7 @@ namespace API.Core.Specification
         {
             base.AddInclude(x => x.ProductBrand);
             base.AddInclude(x => x.ProductType);
+            base.AddInclude(x => x.Author);
         }
     }
 }

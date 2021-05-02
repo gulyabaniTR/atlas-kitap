@@ -58,14 +58,16 @@ namespace API.Controllers
         private readonly IGenericRepository<Product> _productRepository;
         private readonly IGenericRepository<ProductBrand> _productBrandRepository;
         private readonly IGenericRepository<ProductType> _productTypeRepository;
+        private readonly IGenericRepository<Author> _authorRepository;
 
         private readonly IMapper _mapper;
         //Inject İşlemi Gerçekleştirildi
-        public ProductsController(IGenericRepository<Product> productRepository, IGenericRepository<ProductBrand> productBrandRepository, IGenericRepository<ProductType> productTypeRepository,IMapper mapper)
+        public ProductsController(IGenericRepository<Product> productRepository, IGenericRepository<ProductBrand> productBrandRepository, IGenericRepository<ProductType> productTypeRepository,IGenericRepository<Author> authorRepository,IMapper mapper)
         {
             _productRepository = productRepository;
             _productBrandRepository = productBrandRepository;
             _productTypeRepository = productTypeRepository;
+            _authorRepository = authorRepository;
             _mapper = mapper;
         }
 

@@ -21,6 +21,7 @@ namespace API.Infrastructure.Implements
             return await _context.Products
                 .Include(x => x.ProductBrand)
                 .Include(x => x.ProductType)
+                .Include(x=>x.Author)
                 .FirstOrDefaultAsync(x => x.Id == id);
         }
 
@@ -29,6 +30,7 @@ namespace API.Infrastructure.Implements
             return await _context.Products
                 .Include(x=>x.ProductBrand)
                 .Include(x=>x.ProductType)
+                .Include(x=>x.Author)
                 .ToListAsync();
         }
 

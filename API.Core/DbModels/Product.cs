@@ -14,6 +14,7 @@ namespace API.Core.DbModels
         public int ProductTypeId { get; set; }
         public ProductBrand ProductBrand { get; set; }
         public int ProductBrandId { get; set; }
-
+        public Author Author { get; set; }
+        public int AuthorId { get; set; }
     }
 }

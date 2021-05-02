@@ -18,6 +18,7 @@ namespace API.Core.Specification
         public int? BrandId { get; set; }
         public int? TypeId { get; set; }
         public string Sort { get; set; }
+        public int? AuthorId { get; set; }
 
 
         //search encapsulation

@@ -17,5 +17,6 @@ namespace API.Dtos
         //public int ProductBrandId { get; set; }
         public string ProductType { get; set; }
         public string ProductBrand { get; set; }
+        public string Author { get; set; }
     }
 }
